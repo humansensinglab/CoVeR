@@ -1,0 +1,1137 @@
+[
+  {
+    "id": "color",
+    "label": "Color",
+    "accuracy": "21 / 33 correct",
+    "items": [
+      {
+        "qid": "val-scene0046-3",
+        "q": "What color sign is on the black door at the end of the hallway?",
+        "pred": "red",
+        "gt": [
+          "red and white sign",
+          "white and red"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-5",
+        "q": "What color is the cabinet next to the blue plaid curtains?",
+        "pred": "brown",
+        "gt": [
+          "brown cabinet",
+          "brown"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-9",
+        "q": "What color sign is on the blue door?",
+        "pred": "red",
+        "gt": [
+          "red and white",
+          "red sign"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-14",
+        "q": "What color curtains are on the right of the window?",
+        "pred": "white",
+        "gt": [
+          "green and blue",
+          "blue and green"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-17",
+        "q": "What color is the wooden nightstand?",
+        "pred": "brown",
+        "gt": [
+          "light brown",
+          "tan"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-22",
+        "q": "What color is the sink?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-24",
+        "q": "What color is the bathtub on the far right of the room?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-27",
+        "q": "What color pillow is positioned at the head of a bed?",
+        "pred": "white",
+        "gt": [
+          "while pillow",
+          "white pillow"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-30",
+        "q": "What color is the towel to the right of the toilet?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-31",
+        "q": "What color is the mat beneath the toilet?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-32",
+        "q": "What color is the shower curtain?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-39",
+        "q": "What color entry door is in front of the toliet?",
+        "pred": "blue",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-43",
+        "q": "What color is the wardrobe in the corner of the room?",
+        "pred": "brown",
+        "gt": [
+          "brown",
+          "brown"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-45",
+        "q": "What color curtains are next to the wardrobe?",
+        "pred": "blue",
+        "gt": [
+          "blue green",
+          "green and blue"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-47",
+        "q": "What color is the tv above the night stand?",
+        "pred": "black",
+        "gt": [
+          "black",
+          "black"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-48",
+        "q": "The black tv is hung above what color night stand?",
+        "pred": "brown",
+        "gt": [
+          "brown wooden color",
+          "brown"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-51",
+        "q": "What color is the bathroom door?",
+        "pred": "blue",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-52",
+        "q": "What color is the apartment door?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "black"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-54",
+        "q": "What color is the front door to the apartment?",
+        "pred": "blue",
+        "gt": [
+          "dark blue",
+          "blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-56",
+        "q": "What color is the bathtub in the bathroom?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-65",
+        "q": "What color is the tv above a bed?",
+        "pred": "black",
+        "gt": [
+          "black",
+          "black"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-70",
+        "q": "What color is the towel between the toilet and the sink?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-71",
+        "q": "What color chair is next to the tan desk?",
+        "pred": "blue",
+        "gt": [
+          "brown",
+          "brown and blue"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-72",
+        "q": "What color is the bed in the corner of the room?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "brown white blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-81",
+        "q": "What color sink is near the shower curtain?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "white sink"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-87",
+        "q": "What color is the main door?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "dark blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-93",
+        "q": "What color is the chair?",
+        "pred": "blue",
+        "gt": [
+          "brown and blue",
+          "blue and brown"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-95",
+        "q": "What color sink is attached to the wall of the bathroom?",
+        "pred": "white",
+        "gt": [
+          "off white",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-97",
+        "q": "What color is the entry door?",
+        "pred": "blue",
+        "gt": [
+          "black",
+          "black"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-99",
+        "q": "What color is the pillow on the bed?",
+        "pred": "white",
+        "gt": [
+          "white",
+          "eggshell"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-103",
+        "q": "What color laptop sits on top of the desk?",
+        "pred": "black",
+        "gt": [
+          "black",
+          "black"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-106",
+        "q": "What color is the chair cushion?",
+        "pred": "blue",
+        "gt": [
+          "blue",
+          "blue"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-108",
+        "q": "What color is the surface of the table?",
+        "pred": "brown",
+        "gt": [
+          "green",
+          "black"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "position",
+    "label": "Position / Spatial",
+    "accuracy": "18 / 58 correct",
+    "items": [
+      {
+        "qid": "val-scene0046-1",
+        "q": "Where is the button located on the top side of the toilet?",
+        "pred": "on wall",
+        "gt": [
+          "above white toilet",
+          "on left side looking straight on"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-2",
+        "q": "What is at the end of the hallway?",
+        "pred": "door",
+        "gt": [
+          "black rectangular door",
+          "door"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-4",
+        "q": "What is the tall brown cabinet next to?",
+        "pred": "tv",
+        "gt": [
+          "blue plaid curtains",
+          "tv"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-6",
+        "q": "What is hanging between the sink and the toilet?",
+        "pred": "shower curtain",
+        "gt": [
+          "towel",
+          "towel"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-7",
+        "q": "Where is the blue towel hanging?",
+        "pred": "on towel rack",
+        "gt": [
+          "between toilet and sink",
+          "between sink and toilet"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-8",
+        "q": "Where is the blue door located?",
+        "pred": "in front of bathroom vanity",
+        "gt": [
+          "entrance",
+          "to right of bath tub on other side of wall"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-10",
+        "q": "What is the object behind 2 pairs of shoes?",
+        "pred": "bench",
+        "gt": [
+          "table",
+          "table"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-12",
+        "q": "Where is the toilet located?",
+        "pred": "to left of sink",
+        "gt": [
+          "next to towel under toilet paper",
+          "right in front of bathroom entrance"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-15",
+        "q": "What is the chair in front of?",
+        "pred": "desk",
+        "gt": [
+          "light brown desk",
+          "desk"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-16",
+        "q": "A blue and brown chair is in front of a desk with what on it?",
+        "pred": "laptop",
+        "gt": [
+          "several objects laptop stand black laptop",
+          "laptop"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-18",
+        "q": "What kind of desk is the computer located on?",
+        "pred": "wooden",
+        "gt": [
+          "small brown desk",
+          "computer desk"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-19",
+        "q": "What is on the desk in front of the blue and brown chair?",
+        "pred": "laptop",
+        "gt": [
+          "computer",
+          "laptop"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-20",
+        "q": "What is positioned above the toilet and on the left of the sink?",
+        "pred": "mirror",
+        "gt": [
+          "ledge",
+          "toilet paper roll"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-21",
+        "q": "What is above the toilet flush button?",
+        "pred": "picture",
+        "gt": [
+          "white ledge",
+          "shelf"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-23",
+        "q": "What is on the left of the sink?",
+        "pred": "bathtub",
+        "gt": [
+          "blue towel",
+          "toilet"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-25",
+        "q": "On what side of the room is a white bathtub with a white shower curtain?",
+        "pred": "right",
+        "gt": [
+          "right",
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-26",
+        "q": "What is on the left of the bathtub?",
+        "pred": "sink",
+        "gt": [
+          "sink",
+          "sink"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-28",
+        "q": "What is underneath the white pillow?",
+        "pred": "blue blanket",
+        "gt": [
+          "blue bed sheets",
+          "blue towel"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-29",
+        "q": "What is above the toilet to flush the toilet?",
+        "pred": "toilet paper",
+        "gt": [
+          "flushing button",
+          "button to flush toilet"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-33",
+        "q": "What is hanging in the corner between the cabinets and the wall?",
+        "pred": "picture",
+        "gt": [
+          "curtains",
+          "blue and green curtains"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-34",
+        "q": "Where is the tv located?",
+        "pred": "on wall",
+        "gt": [
+          "between picture and wardrobe",
+          "light brown nightstand"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-35",
+        "q": "What is to the left of the sink?",
+        "pred": "bathtub",
+        "gt": [
+          "toilet",
+          "white toilet"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-40",
+        "q": "Where is the white entry door located?",
+        "pred": "to left of blue door",
+        "gt": [
+          "in front of toilet",
+          "in front of toilet"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-41",
+        "q": "What is located above the open toilet seat?",
+        "pred": "towel",
+        "gt": [
+          "toilet flush button",
+          "flush button"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-42",
+        "q": "Where is the backpack located?",
+        "pred": "on the floor",
+        "gt": [
+          "to right of blue and brown chair",
+          "next to table on floor"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-46",
+        "q": "To what side of the sink is the white shower curtain located?",
+        "pred": "right",
+        "gt": [
+          "right",
+          "right"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-49",
+        "q": "What is suspended on the wall between the tall brown cabinet and the wall to the right of the tv?",
+        "pred": "picture",
+        "gt": [
+          "rectangular picture",
+          "picture"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-50",
+        "q": "What is under the tv on the table?",
+        "pred": "cabinet",
+        "gt": [
+          "brown wooden nightstand",
+          "object"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-55",
+        "q": "The nightstand is in-between what?",
+        "pred": "bed and desk",
+        "gt": [
+          "between bed and wardrobe",
+          "between bed and wardrobe"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-57",
+        "q": "What is located to the left of the bathtub?",
+        "pred": "sink",
+        "gt": [
+          "shower curtain",
+          "white bathroom sink"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-58",
+        "q": "Where is the bathtub located?",
+        "pred": "to right of toilet",
+        "gt": [
+          "behind shower curtain inside bathroom",
+          "to right of white bathroom sink"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-59",
+        "q": "Where is the bathtub located in the bathroom?",
+        "pred": "to right of toilet",
+        "gt": [
+          "to left of doorframe and light switch",
+          "to right of white bathroom sink"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-60",
+        "q": "What is in front of the toilet?",
+        "pred": "shower curtain",
+        "gt": [
+          "door",
+          "blue mat"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-61",
+        "q": "What is on top of the bathtub?",
+        "pred": "shower curtain",
+        "gt": [
+          "shower curtain",
+          "shower curtain"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-62",
+        "q": "Where is the bathtub positioned?",
+        "pred": "to right of toilet",
+        "gt": [
+          "next to sink",
+          "in bathroom in corner"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-64",
+        "q": "Where is the white bathtub located?",
+        "pred": "to right of sink",
+        "gt": [
+          "next to sink",
+          "by sink"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-66",
+        "q": "What is the black tv above?",
+        "pred": "bed",
+        "gt": [
+          "bed",
+          "nightstand"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-67",
+        "q": "What type of sink is next to a toilet?",
+        "pred": "white",
+        "gt": [
+          "white sink",
+          "white sink"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-68",
+        "q": "What is to the right of the white sink?",
+        "pred": "bathtub",
+        "gt": [
+          "shower curtain",
+          "bathtub"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-69",
+        "q": "Where is the bed?",
+        "pred": "right",
+        "gt": [
+          "on corner to left of bathroom",
+          "against wall"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-73",
+        "q": "In what part of the room is the white bed located?",
+        "pred": "corner",
+        "gt": [
+          "right corner",
+          "right of wardrobe"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-74",
+        "q": "On what side of the bed is the pillow located?",
+        "pred": "right",
+        "gt": [
+          "right side when facing bed",
+          "end"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-75",
+        "q": "Where is the desk located?",
+        "pred": "in front of window",
+        "gt": [
+          "adjacent wall to left of curtains",
+          "in front of brown chair"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-79",
+        "q": "What is located to the right of the toilet?",
+        "pred": "sink",
+        "gt": [
+          "white sink",
+          "blue towel"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-80",
+        "q": "Where is the curtain located?",
+        "pred": "in front of window",
+        "gt": [
+          "left of wardrobe",
+          "to right of tall cabinet in corner"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-84",
+        "q": "Where is the wooden chair with blue cushion placed?",
+        "pred": "in front of desk",
+        "gt": [
+          "in front of wood desk",
+          "in front of desk"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-85",
+        "q": "Where is the toilet flush button by the toilet basin?",
+        "pred": "on wall",
+        "gt": [
+          "above toilet lid",
+          "on toilet in bathroom"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-86",
+        "q": "What is above the bed?",
+        "pred": "picture",
+        "gt": [
+          "picture",
+          "picture and tv"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-88",
+        "q": "What is in front of the desk?",
+        "pred": "chair",
+        "gt": [
+          "chair",
+          "chair"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-89",
+        "q": "Where has the white door been swung into?",
+        "pred": "bathroom",
+        "gt": [
+          "bathroom",
+          "bathroom"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-91",
+        "q": "Where is the pillow?",
+        "pred": "on bed",
+        "gt": [
+          "on bed",
+          "over bed"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-94",
+        "q": "Where is the blue and brown chair?",
+        "pred": "in front of desk",
+        "gt": [
+          "desk",
+          "by desk"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-96",
+        "q": "Where is the off-white sink located?",
+        "pred": "in bathroom",
+        "gt": [
+          "bathroom",
+          "in bathroom in corner"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-98",
+        "q": "Where is the off-white door located?",
+        "pred": "to left of blue door",
+        "gt": [
+          "in hallway",
+          "in bathroom"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-100",
+        "q": "Where is the off-white pillow on the bed?",
+        "pred": "head",
+        "gt": [
+          "at head of bed",
+          "head of bed"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-101",
+        "q": "What is above the toilet?",
+        "pred": "towel",
+        "gt": [
+          "button",
+          "toilet flush button"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-102",
+        "q": "Where is the white toilet flush button located?",
+        "pred": "on top of toilet",
+        "gt": [
+          "on top of toilet",
+          "on toilet in bathroom"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-105",
+        "q": "What is hanging on the wall to the left of the windows?",
+        "pred": "picture",
+        "gt": [
+          "lamp",
+          "picture and tv"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "counting",
+    "label": "Counting",
+    "accuracy": "3 / 5 correct",
+    "items": [
+      {
+        "qid": "val-scene0046-11",
+        "q": "How many pairs of shoes is the table behind?",
+        "pred": "2",
+        "gt": [
+          "2",
+          "2"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-38",
+        "q": "How many teirs are on the table end shelf?",
+        "pred": "2",
+        "gt": [
+          "2 tiers",
+          "2"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-44",
+        "q": "How many doors does the brown wardrobe have?",
+        "pred": "3",
+        "gt": [
+          "2 doors",
+          "2"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-82",
+        "q": "How many legs does the arm chair have?",
+        "pred": "4",
+        "gt": [
+          "4",
+          "4 of them"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-109",
+        "q": "How many pairs of shoes can be seen lying in front of the table?",
+        "pred": "two",
+        "gt": [
+          "2 pairs",
+          "2"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "situational",
+    "label": "Function / Situational",
+    "accuracy": "0 / 4 correct",
+    "items": [
+      {
+        "qid": "val-scene0046-0",
+        "q": "What does it do?",
+        "pred": "wash",
+        "gt": [
+          "flush toilet",
+          "no answer can be given"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-63",
+        "q": "How far from the window curtains is the chair?",
+        "pred": "near",
+        "gt": [
+          "few inches from curtains",
+          "close"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-77",
+        "q": "How is the laptop located on top of the desk?",
+        "pred": "open",
+        "gt": [
+          "in center of desk",
+          "in middle of desk"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-92",
+        "q": "How is the blue bath towel hung?",
+        "pred": "on towel rack",
+        "gt": [
+          "on wall next to sink",
+          "over towel stand between sink and toilet"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "identity",
+    "label": "Object Identity",
+    "accuracy": "4 / 10 correct",
+    "items": [
+      {
+        "qid": "val-scene0046-13",
+        "q": "What is the tall brown wooden cabinet called?",
+        "pred": "wardrobe",
+        "gt": [
+          "wardrobe",
+          "in corner to right of curtains"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-36",
+        "q": "What part of a white toilet is opened?",
+        "pred": "seat",
+        "gt": [
+          "cover seat",
+          "seat"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-37",
+        "q": "What is at the foot of the bed with two teirs?",
+        "pred": "pillow",
+        "gt": [
+          "table end shelf",
+          "shelf"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-53",
+        "q": "What is the front door to the apartment?",
+        "pred": "blue door",
+        "gt": [
+          "blue door",
+          "sign"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-76",
+        "q": "What electronic device is sitting atop the desk?",
+        "pred": "laptop",
+        "gt": [
+          "black laptop",
+          "black laptop"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-78",
+        "q": "What is the laptop centered on?",
+        "pred": "desk",
+        "gt": [
+          "brown wooden desk",
+          "on desk"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-83",
+        "q": "What type of chair has four legs?",
+        "pred": "wooden chair",
+        "gt": [
+          "blue cushioned chair light brown wood",
+          "arm chair"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-90",
+        "q": "What is on the bed?",
+        "pred": "blanket",
+        "gt": [
+          "blue blanket white blanket pillow",
+          "white pillow"
+        ],
+        "ok": false
+      },
+      {
+        "qid": "val-scene0046-104",
+        "q": "What is covering the windows?",
+        "pred": "curtains",
+        "gt": [
+          "curtains",
+          "curtains"
+        ],
+        "ok": true
+      },
+      {
+        "qid": "val-scene0046-107",
+        "q": "What can be seen hanging by the bathtub?",
+        "pred": "shower curtain",
+        "gt": [
+          "white shower curtain",
+          "shower curtains"
+        ],
+        "ok": false
+      }
+    ]
+  }
+]

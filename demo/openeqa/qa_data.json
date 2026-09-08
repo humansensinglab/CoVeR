@@ -1,0 +1,155 @@
+[
+  {
+    "id": "object_recognition",
+    "label": "Object Recognition",
+    "accuracy": "2 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "94951922-fc1a-4c14-898d-0e5d6407de9a",
+        "q": "What is the gray object in corner of the room?",
+        "gt": "trash bin",
+        "pred": "trash can",
+        "score": 5,
+        "ok": true
+      },
+      {
+        "qid": "e48cb9e2-a686-4833-ae3d-846a0be01921",
+        "q": "What is the white object hanging on the red wall?",
+        "gt": "whiteboard",
+        "pred": "whiteboard",
+        "score": 5,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "attribute_recognition",
+    "label": "Attribute Recognition",
+    "accuracy": "2 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "e80efdc3-a589-419f-a59a-9afd824867a2",
+        "q": "What is the color of the wall with the whiteboard?",
+        "gt": "red",
+        "pred": "red",
+        "score": 5,
+        "ok": true
+      },
+      {
+        "qid": "ce189a94-cd18-4868-a98b-9576e5db9128",
+        "q": "What is the color of non-black chairs?",
+        "gt": "red",
+        "pred": "red",
+        "score": 5,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "spatial_understanding",
+    "label": "Spatial Understanding",
+    "accuracy": "1 / 1 scored \u22653/5",
+    "items": [
+      {
+        "qid": "f635297a-67d9-4a72-acbe-ff32dbe9fa43",
+        "q": "What is in front of television?",
+        "gt": "black chair and red chair",
+        "pred": "chair",
+        "score": 3,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "object_state_recognition",
+    "label": "Object State Recognition",
+    "accuracy": "2 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "bb66d352-b33d-4758-b92c-8c71be7f4a1f",
+        "q": "Is the door open or closed?",
+        "gt": "open",
+        "pred": "open",
+        "score": 5,
+        "ok": true
+      },
+      {
+        "qid": "2d53c160-e5f8-4615-9563-7899ec137c55",
+        "q": "Is there any object on the conference table?",
+        "gt": "No",
+        "pred": "no",
+        "score": 5,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "functional_reasoning",
+    "label": "Functional Reasoning",
+    "accuracy": "2 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "a2b9cef4-15a2-489a-b784-10019bd8f75d",
+        "q": "Where can I write math equations?",
+        "gt": "on the whiteboard",
+        "pred": "whiteboard",
+        "score": 5,
+        "ok": true
+      },
+      {
+        "qid": "a339748b-a292-48f0-ab32-e1ba945f9611",
+        "q": "Where I can show my presentation?",
+        "gt": "on the television",
+        "pred": "tv",
+        "score": 5,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "world_knowledge",
+    "label": "World Knowledge",
+    "accuracy": "2 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "46728774-e6bf-4b62-bd67-970e902a6f5b",
+        "q": "Which room do these images come from?",
+        "gt": "conference room",
+        "pred": "conference room",
+        "score": 5,
+        "ok": true
+      },
+      {
+        "qid": "a0af16f9-2e25-4705-b726-d495b7e654c4",
+        "q": "Where should I keep the pizza for the meeting?",
+        "gt": "on the conference table",
+        "pred": "on the table",
+        "score": 4,
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "object_localization",
+    "label": "Object Localization",
+    "accuracy": "1 / 2 scored \u22653/5",
+    "items": [
+      {
+        "qid": "e7c6095c-72d3-416f-9f3b-43f59f1aca3a",
+        "q": "Where is the charging outlet?",
+        "gt": "below the whiteboard",
+        "pred": "on wall",
+        "score": 2,
+        "ok": false
+      },
+      {
+        "qid": "5aac34c1-56b8-4781-a580-0c863ae22987",
+        "q": "Where is trash bin located?",
+        "gt": "at corner of glass panel and red wall",
+        "pred": "in corner",
+        "score": 3,
+        "ok": true
+      }
+    ]
+  }
+]

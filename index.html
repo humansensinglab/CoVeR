@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs</title>
+<meta name="description" content="CoVeR is a deterministic, training-free visual token pruning method for multi-view 3D reasoning in vision-language models (VLMs). It selects tokens from 3D coordinates alone, keeping 93.5% of full-token performance at ~8% of visual tokens.">
+<meta name="keywords" content="CoVeR, token pruning, visual token pruning, 3D reasoning, multi-view, vision-language models, VLM, ScanQA, SQA3D, OpenEQA, LLaVA-OneVision, efficient inference, KV cache, training-free">
+<meta name="author" content="Nhat-Tan Bui, Varshini Elangovan, Arun Reddy Anugu, Sreyas Mohan, Wei Ye, Dilin Wang, JQ Huang, Rakesh Ranjan, Aviral Chharia, Fernando De la Torre">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#6366f1">
+
+<link rel="canonical" href="https://humansensinglab.github.io/CoVeR">
+<link rel="icon" type="image/png" href="figs/favicon_meta.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CoVeR">
+<meta property="og:url" content="https://humansensinglab.github.io/CoVeR">
+<meta property="og:title" content="CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs">
+<meta property="og:description" content="A deterministic, training-free token pruner that selects visual tokens from 3D coordinates alone — 93.5% of full-token performance at ~8% of visual tokens.">
+<meta property="og:image" content="figs/teaser.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs">
+<meta name="twitter:description" content="Training-free, geometry-only visual token pruning for 3D reasoning in VLMs.">
+<meta name="twitter:image" content="figs/teaser.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs",
+  "name": "CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs",
+  "abstract": "CoVeR is a deterministic, training-free visual token pruning method for multi-view 3D reasoning in vision-language models. Using only 3D token coordinates, it selects a subset that covers the whole scene under an exact per-scene budget, retaining 93.5% of full-token performance at ~8% of visual tokens.",
+  "author": [
+    {"@type": "Person", "name": "Nhat-Tan Bui"},
+    {"@type": "Person", "name": "Varshini Elangovan"},
+    {"@type": "Person", "name": "Arun Reddy Anugu"},
+    {"@type": "Person", "name": "Sreyas Mohan"},
+    {"@type": "Person", "name": "Wei Ye"},
+    {"@type": "Person", "name": "Dilin Wang"},
+    {"@type": "Person", "name": "JQ Huang"},
+    {"@type": "Person", "name": "Rakesh Ranjan"},
+    {"@type": "Person", "name": "Aviral Chharia"},
+    {"@type": "Person", "name": "Fernando De la Torre"}
+  ],
+  "keywords": "token pruning, 3D reasoning, multi-view, vision-language models, efficient VLM inference",
+  "inLanguage": "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260908g">
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span>CoVeR<span class="dot"></span></span></a>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#demo">Demo</a>
+      <a href="#results">Results</a>
+      <a href="#compare">Compare</a>
+      <a href="#method">Method</a>
+      <a href="#generalization">VLMs</a>
+      <a href="#bibtex">BibTeX</a>
+      <span class="nav-gh nav-soon">
+        <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        Code · soon
+      </span>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap" style="position:relative">
+    <h1><span class="name-grad">CoVeR</span>: Coverage-Based Token Pruning for Multi-View 3D<br class="title-break">Reasoning in VLMs</h1>
+    <p class="tagline">A deterministic, training-free token pruner for multi-view inputs to 2D VLMs that selects a subset of visual tokens that collectively covers the scene.</p>
+    <div class="authors">
+        <a href="https://tanbuinhat.github.io/">Nhat-Tan Bui*</a><sup>1</sup>&emsp;
+        <a href="https://varshini-e.github.io/">Varshini Elangovan*</a><sup>1</sup>&emsp;
+        <a href="https://www.linkedin.com/in/a-arun-reddy/">Arun Reddy Anugu</a><sup>1</sup>&emsp;
+        <a href="https://sreyas-mohan.github.io/">Sreyas Mohan</a><sup>2</sup>&emsp;
+        <a href="https://ywwwer.github.io/">Wei Ye</a><sup>2</sup>&emsp;
+        <a href="https://wdilin.github.io/">Dilin Wang</a><sup>2</sup><br class="author-break">
+        <a href="https://www.linkedin.com/in/jq-huang/">JQ Huang</a><sup>2</sup>&emsp;
+        <a href="https://www.linkedin.com/in/rakesh-r-3848538/">Rakesh Ranjan</a><sup>2</sup>&emsp;
+        <a href="https://aviralchharia.github.io/">Aviral Chharia</a><sup>1,&dagger;</sup>&emsp;
+        <a href="https://www.cs.cmu.edu/~ftorre/">Fernando De la Torre</a><sup>1</sup>
+    </div>
+    <div class="affil">
+        <div><span class="affil-num">1</span><img src="figs/ri_cmu_logo.png" alt="Robotics Institute, Carnegie Mellon University"></div>
+        <div><span class="affil-num">2</span><img src="figs/meta_logo.png" alt="Meta Reality Labs"></div>
+    </div>
+    <div class="eqnote">* Equal contribution &nbsp;·&nbsp; &dagger; Corresponding author</div>
+    <div class="btn-row">
+      <a class="btn primary" href="CoVeR.pdf" target="_blank" rel="noopener">📄 Paper (PDF)</a>
+      <span class="btn soon">📄 arXiv · soon</span>
+      <span class="btn soon">▶&nbsp; Video · soon</span>
+      <span class="btn soon">&lt;/&gt;&nbsp; Code · soon</span>
+      <a class="btn ghost" href="#bibtex">✏️ BibTeX</a>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat-grid">
+        <div class="stat"><div class="num">93.5%</div><div class="lab">of full-token performance retained at just ≈8% of visual tokens (avg. of 3 benchmarks)</div></div>
+        <div class="stat"><div class="num">+3.9 pts</div><div class="lab">average accuracy gain over the prior SOTA pruner at aggressive (~8%) token budgets</div></div>
+        <div class="stat"><div class="num">8.6×</div><div class="lab">fewer LLM TFLOPs and 7× smaller KV cache at 14% retention, for a 1.1% relative drop in ScanQA dataset</div></div>
+        <div class="stat"><div class="num">No</div><div class="lab">attention, visual features, or training used — CoVeR selects from 3D coordinates alone</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="overview" class="reveal">
+  <span class="kicker">Overview</span>
+  <h2>Coverage, not concentration</h2>
+  <p class="prose">
+    Rendering a 3D scene as multi-view images lets a pre-trained 2D VLM reason in 3D by reusing its visual and language priors — sidestepping the scarcity of annotated 3D data. But every added view adds visual tokens: 12 views already yield <b>8,748 tokens</b> in LLaVA-OneVision-7B, and roughly <b>31% of them are spatial duplicates</b> of the same physical surface seen from a different camera. Existing token pruners weren't designed for this redundancy, which is <b>geometric</b>, not semantic, so ranking tokens by attention or encoder features keeps near-duplicate observations of a few prominent regions and leaves the rest of the scene unrepresented.
+  </p>
+  <div class="figure">
+    <img src="figs/teaser.jpg" alt="CoVeR overview: from posed multi-view images to a coverage-selected token budget">
+    <div class="figcap"><b>Figure 1 — CoVeR.</b> A deterministic, training-free token selector for multi-view 3D reasoning in 2D VLMs. Posed images and depth are back-projected into 3D feature points; coverage initialization removes cross-view duplicates with an adaptively-sized voxel grid, and coverage expansion extends the cover into still-underrepresented regions until an exact token budget is met. Using geometry alone, CoVeR surpasses SOTA token pruners in the multi-view 3D setting.</div>
+  </div>
+  <div class="duo">
+    <div class="zoom-card spa">
+      <div class="icon">🧊</div>
+      <h3>Voxelization alone gives no exact budget</h3>
+      <p>Back-projecting tokens into 3D and pooling one per occupied voxel improves coverage, but the output count is governed by voxel size, not a token budget: at a fixed resolution, <b>56% of scenes fall under budget and 44% overshoot it</b>. Shrinking voxels further doesn't help either — occupancy saturates near 69% once overlapping views already share voxels, capping retention well below aggressive targets.</p>
+    </div>
+    <div class="zoom-card tem">
+      <div class="icon">🎯</div>
+      <h3>Learned importance clusters tokens</h3>
+      <p>Attention- and feature-based rankers spend the budget on whichever regions score highest — usually a few prominent, near-duplicate views of the same object — while distinct objects and boundaries elsewhere go unrepresented. These signals are also model-specific, tied to attention maps or auxiliary features that vary across architectures.</p>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="reveal">
+  <span class="kicker">Interactive Demo</span>
+  <h2>See what CoVeR keeps <span class="h2-hint">(Hover over any Camera)</span></h2>
+  <div class="demo">
+      <div class="bench-tabs" id="demoBench" role="tablist"></div>
+      <div id="demoBenchSpec" class="qa-demo-sub"></div>
+      <div class="qa-tabs" id="qaTabs" role="tablist"></div>
+
+      <div class="qa-head" id="qaHead"></div>
+
+      <div class="demo-viewer">
+        <div id="demoCanvasWrap" class="demo-canvas-wrap">
+          <div id="demoLoading" class="demo-loading">Loading scene…</div>
+          <button id="demoExplore" class="demo-explore" type="button">Enable zoom</button>
+        </div>
+        <div class="demo-info">
+          <div class="qa-ans" id="qaAns"></div>
+          <div class="demo-shot" id="demoShotOrig" hidden>
+            <span class="demo-shot-label">Input view</span>
+            <div class="shot-canvas-wrap">
+              <span class="shot-badge" id="demoBadgeOrig"></span>
+              <canvas id="demoOrigCanvas" class="demo-info-canvas"></canvas>
+            </div>
+          </div>
+          <div class="demo-shot" id="demoShotPruned" hidden>
+            <span class="demo-shot-label">Pruned tokens kept</span>
+            <div class="shot-canvas-wrap">
+              <span class="shot-badge" id="demoBadgePruned"></span>
+              <canvas id="demoInfoCanvas" class="demo-info-canvas"></canvas>
+            </div>
+          </div>
+          <div class="demo-info-meta">
+            <div id="demoInfoHint" class="demo-info-hint">Drag to orbit · click <b>Enable zoom</b> to scroll-zoom.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="figcap" id="demoCap"></div>
+    </div>
+</section>
+
+<section id="results" class="reveal">
+  <span class="kicker">Experiments</span>
+  <h2>Results on 3D reasoning benchmarks</h2>
+  <p class="prose">
+    We evaluate all three forms of 3D reasoning with LLaVA-OneVision-7B on 12 uniformly sampled views: <b>ScanQA</b> (spatial scene understanding), <b>SQA3D</b> (situated reasoning), and <b>OpenEQA</b> (embodied QA). CoVeR achieves the best aggregate performance at every token budget, and the gap to prior SOTA pruners widens as the budget tightens.
+  </p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-t="t9">9% tokens</button>
+    <button class="tab" data-t="t14">14% tokens</button>
+    <button class="tab" data-t="t23">23% tokens</button>
+    <button class="tab" data-t="t40">40% tokens</button>
+  </div>
+
+  <div class="table-card" id="t9">
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Methods</th>
+                <th colspan="3">ScanQA</th>
+                <th>OpenEQA</th>
+                <th>SQA3D</th>
+                <th rowspan="2">Avg.</th>
+                <th rowspan="2">Rel. %</th>
+            </tr>
+            <tr>
+                <th>EM@1</th>
+                <th>CIDEr</th>
+                <th>ROUGE-L</th>
+                <th>LLM-Match</th>
+                <th>EM@1</th>
+            </tr>
+        </thead>
+      <tbody>
+        <tr><td>LLaVA-OV-7B (100%)</td><td>28.2</td><td>83.6</td><td>42.6</td><td>59.1</td><td>51.7</td><td>54.1</td><td>100.0</td></tr>
+        <tr><td>DTC</td><td>26.1</td><td>–</td><td>–</td><td>–</td><td>48.0</td><td>–</td><td>–</td></tr>
+        <tr><td>VisPruner</td><td>23.4</td><td>66.9</td><td>35.6</td><td>51.5</td><td>45.7</td><td>46.4</td><td>85.9</td></tr>
+        <tr><td>SeGPruner</td><td>24.5</td><td>71.2</td><td>37.0</td><td>52.5</td><td>48.4</td><td>48.4</td><td>89.6</td></tr>
+        <tr class="ours"><td>CoVeR (Ours)</td><td>27.1</td><td>81.4</td><td>41.5</td><td>53.0</td><td>48.6</td><td>50.5 <span class="delta">+2.1</span></td><td>93.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-card" id="t14" hidden>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Methods</th>
+                <th colspan="3">ScanQA</th>
+                <th>OpenEQA</th>
+                <th>SQA3D</th>
+                <th rowspan="2">Avg.</th>
+                <th rowspan="2">Rel. %</th>
+            </tr>
+            <tr>
+                <th>EM@1</th>
+                <th>CIDEr</th>
+                <th>ROUGE-L</th>
+                <th>LLM-Match</th>
+                <th>EM@1</th>
+            </tr>
+        </thead>
+      <tbody>
+        <tr><td>LLaVA-OV-7B (100%)</td><td>28.2</td><td>83.6</td><td>42.6</td><td>59.1</td><td>51.7</td><td>54.1</td><td>100.0</td></tr>
+        <tr><td>DTC</td><td>26.7</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+        <tr><td>VisPruner</td><td>24.8</td><td>71.7</td><td>37.5</td><td>55.9</td><td>49.0</td><td>49.9</td><td>92.2</td></tr>
+        <tr><td>SeGPruner</td><td>26.4</td><td>75.2</td><td>38.9</td><td>56.0</td><td>49.7</td><td>50.8</td><td>94.2</td></tr>
+        <tr class="ours"><td>CoVeR (Ours)</td><td>27.9</td><td>82.4</td><td>42.2</td><td>56.8</td><td>51.2</td><td>52.9 <span class="delta">+2.1</span></td><td>98.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-card" id="t23" hidden>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Methods</th>
+                <th colspan="3">ScanQA</th>
+                <th>OpenEQA</th>
+                <th>SQA3D</th>
+                <th rowspan="2">Avg.</th>
+                <th rowspan="2">Rel. %</th>
+            </tr>
+            <tr>
+                <th>EM@1</th>
+                <th>CIDEr</th>
+                <th>ROUGE-L</th>
+                <th>LLM-Match</th>
+                <th>EM@1</th>
+            </tr>
+        </thead>
+      <tbody>
+        <tr><td>LLaVA-OV-7B (100%)</td><td>28.2</td><td>83.6</td><td>42.6</td><td>59.1</td><td>51.7</td><td>54.1</td><td>100.0</td></tr>
+        <tr><td>DTC</td><td>27.7</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+        <tr><td>VisPruner</td><td>26.9</td><td>77.1</td><td>40.1</td><td>57.1</td><td>49.5</td><td>51.5</td><td>95.4</td></tr>
+        <tr><td>SeGPruner</td><td>27.7</td><td>78.9</td><td>40.7</td><td>57.5</td><td>50.6</td><td>52.4</td><td>97.1</td></tr>
+        <tr class="ours"><td>CoVeR (Ours)</td><td>28.5</td><td>85.5</td><td>43.2</td><td>57.7</td><td>51.7</td><td>53.9 <span class="delta">+1.5</span></td><td>99.7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-card" id="t40" hidden>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Methods</th>
+                <th colspan="3">ScanQA</th>
+                <th>OpenEQA</th>
+                <th>SQA3D</th>
+                <th rowspan="2">Avg.</th>
+                <th rowspan="2">Rel. %</th>
+            </tr>
+            <tr>
+                <th>EM@1</th>
+                <th>CIDEr</th>
+                <th>ROUGE-L</th>
+                <th>LLM-Match</th>
+                <th>EM@1</th>
+            </tr>
+        </thead>
+      <tbody>
+        <tr><td>LLaVA-OV-7B (100%)</td><td>28.2</td><td>83.6</td><td>42.6</td><td>59.1</td><td>51.7</td><td>54.1</td><td>100.0</td></tr>
+        <tr><td>DTC</td><td>27.7</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+        <tr><td>VisPruner</td><td>28.0</td><td>80.3</td><td>41.4</td><td>58.4</td><td>51.0</td><td>53.1</td><td>98.3</td></tr>
+        <tr><td>SeGPruner</td><td>28.2</td><td>81.9</td><td>42.0</td><td>58.0</td><td>51.5</td><td>53.4</td><td>98.9</td></tr>
+        <tr class="ours"><td>CoVeR (Ours)</td><td>28.9</td><td>85.5</td><td>43.4</td><td>58.6</td><td>51.7</td><td>54.3 <span class="delta">+0.9</span></td><td>100.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="tbl-note">EM@1 / CIDEr / ROUGE-L on ScanQA, LLM-Match on OpenEQA, EM@1 on SQA3D; Avg./Rel. computed across the three benchmarks.</p>
+
+  <div class="insight">
+    <b>Insight —</b> broader spatial coverage accompanies stronger 3D reasoning. On ScanQA at 9% retention, CoVeR's tokens are far more uniformly spread than SeGPruner's and cover more of the scene — while staying within 3.1% of the scene diagonal of every region SeGPruner selects. Coverage doesn't discard salient regions; it preserves them and additionally covers the rest of the scene. Check out the paper for more details!
+  </div>
+
+  <div class="grid-2">
+    <div class="panel">
+      <h3>🧩 Design ablations — ScanQA avg. (EM@1, CIDEr, ROUGE-L) at 9% tokens</h3>
+      <div class="bar-row"><span class="lab">Random selection</span><div class="bar-track"><div class="bar-fill" data-w="48.3"></div></div><span class="val">48.3</span></div>
+      <div class="bar-row"><span class="lab">Top-K (no updates)</span><div class="bar-track"><div class="bar-fill" data-w="49.3"></div></div><span class="val">49.3</span></div>
+      <div class="bar-row"><span class="lab">FPS from scratch</span><div class="bar-track"><div class="bar-fill" data-w="49.5"></div></div><span class="val">49.5</span></div>
+      <div class="bar-row ours"><span class="lab">Stage 1 + Iterative FPS</span><div class="bar-track"><div class="bar-fill" data-w="50.0"></div></div><span class="val">50.0</span></div>
+    </div>
+    <div class="panel">
+      <h3>⚡ Efficiency — ScanQA, 9% retention, 1×H100</h3>
+      <div class="eff-list">
+        <div class="eff-item"><span class="m">LLaVA-OV-7B (100% tokens)</span><span><span class="v">145.5 TFLOPs · 24.1 GB</span></span></div>
+        <div class="eff-item"><span class="m">VisPruner</span><span><span class="v">22.1 GB mem · EM@1 23.4</span></span></div>
+        <div class="eff-item"><span class="m">SeGPruner</span><span><span class="v">22.1 GB mem · EM@1 24.5</span></span></div>
+        <div class="eff-item ours"><span class="m">CoVeR (Ours)</span><span><span class="v">17.2 GB mem · EM@1 27.1</span><span class="g">+2.6</span></span></div>
+      </div>
+      <p style="font-size:.85rem;color:var(--ink-faint);margin-top:16px">At the same 9% budget, CoVeR also cuts LLM TFLOPs by <b>13.3×</b> and KV cache by <b>10.7×</b> versus full tokens, with a <b>2.9×</b> inference speedup — for a pruning cost of just <b>0.034s</b> per scene, computed entirely from 3D coordinates.</p>
+    </div>
+  </div>
+
+  <div class="figure qual-compact scaling-fig">
+    <img src="figs/view_scaling.png" alt="ScanQA EM@1 versus number of input views: CoVeR grows faster than SeGPruner and VisPruner">
+    <div class="figcap"><b>Scaling with views.</b> As more input views are added, CoVeR's ScanQA EM@1 keeps climbing and its lead widens — from +0.7 at 8 views to +2.4 at 24 — while attention- and feature-based pruners flatten out. More views mean more geometric redundancy, exactly what coverage-based selection exploits.</div>
+  </div>
+</section>
+
+<section id="compare" class="reveal">
+  <span class="kicker">Positioning</span>
+  <h2>How CoVeR compares</h2>
+  <p class="prose">
+    Prior pruners fall into two families. <b>Voxelization</b> methods cover space but can't hit an exact per-scene budget; <b>learned-importance</b> methods lean on attention or encoder features and spend the budget on near-duplicates. CoVeR is the only approach that is geometry-only <em>and</em> guarantees an exact budget on every scene.
+  </p>
+  <div class="table-card">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th rowspan="2">Property</th>
+          <th colspan="2">Voxelization</th>
+          <th colspan="3">Learned Importance</th>
+          <th rowspan="2" class="col-ours">CoVeR</th>
+        </tr>
+        <tr>
+          <th>VTC</th><th>DTC</th>
+          <th>VisPruner</th><th>SeGPruner</th><th>Geo3DPruner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Attention-free</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="col-ours yes">✓</td></tr>
+        <tr><td>Visual-feature-free</td><td class="yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="col-ours yes">✓</td></tr>
+        <tr><td>Auxiliary-encoder-free</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td class="col-ours yes">✓</td></tr>
+        <tr><td>Training-free</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td><td class="col-ours yes">✓</td></tr>
+        <tr><td>Deterministic</td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="col-ours yes">✓</td></tr>
+        <tr><td>Exact per-scene budget</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="col-ours yes">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tbl-note">Only CoVeR satisfies every property: purely geometric selection with a guaranteed exact token budget on every scene.</p>
+</section>
+
+<section id="method" class="reveal">
+  <span class="kicker">Method</span>
+  <h2>Two geometry-only stages</h2>
+  <p class="prose">
+    CoVeR selects a token subset <code>C</code> of exact budget <code>B</code> that minimizes the <b>directed Hausdorff distance</b> from every token location <code>X</code> to the retained set. A small value ensures that no region of the scene is dropped outright, which is precisely the guarantee learned importance never offers. CoVeR reaches this objective in two complementary, training-free stages using only backprojected 3D token coordinates — no attention, features, or auxiliary encoder.
+  </p>
+  <div class="tri">
+    <div class="m-card">
+      <div class="step">1</div>
+      <h3>Coverage Initialization</h3>
+      <p>A per-scene voxel size <code>v_s</code> is searched to target <code>B_init</code> occupied voxels. Keeping the centroid-nearest token per voxel removes cross-view duplicates while preserving spatial coverage.</p>
+    </div>
+    <div class="m-card">
+      <div class="step">2</div>
+      <h3>Coverage Expansion</h3>
+      <p>FPS repeatedly adds the token farthest from the selected set, prioritizing the least-covered regions until exactly <code>B</code> tokens are selected. This ensures spatial information beyond the voxelization limit.</p>
+    </div>
+    <div class="m-card">
+      <div class="step">3</div>
+      <h3>Exact Budget Guarantee</h3>
+      <p>Because stage 2 supplies whatever stage 1 doesn't, CoVeR returns <b>exactly <code>B</code> tokens on every scene</b> — a guarantee no voxelization baseline provides.</p>
+    </div>
+  </div>
+
+  <div class="algo-card">
+    <div class="algo-title">Algorithm 1 — Coverage-based 3D Token Pruning</div>
+    <pre><code><span class="c"># Input:  token coords X = {t_i}, budget B, split ratio α</span>
+<span class="c"># Output: selected set C, |C| = B</span>
+
+B_init ← max(1, ⌊α·B⌋)
+
+<span class="c"># Stage 1 — Coverage Initialization</span>
+v_s    ← heuristic interval search(lower_bound, higher_bound) <span class="c">s.t.</span> |voxels(X, v_s)| ≈ B_init
+C_init ← nearest-to-centroid token per occupied voxel
+
+<span class="c"># Stage 2 — Coverage Expansion</span>
+C ← C_init
+repeat B − |C_init| times:
+    m* ← argmax_{m∉C}  min_{s∈C} ‖t_m − t_s‖²
+    C  ← C ∪ {m*}                           <span class="c"># add the least-covered token</span>
+
+return C                                     <span class="c"># |C| = B, exactly</span></code></pre>
+  </div>
+</section>
+
+<section id="generalization" class="reveal">
+  <span class="kicker">Generalization</span>
+  <h2>Plug-and-play across VLMs</h2>
+  <p class="prose">
+    Because CoVeR needs no training and no architectural changes, the same geometry-only selector drops into different backbones unchanged. We test it across <b>four</b> VLMs — LLaVA-OneVision-7B, Video-3D&nbsp;LLM, Qwen2.5-VL-7B, and Qwen3-VL-8B.
+  </p>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Encoder</th><th>Retrain</th><th>ScanQA (EM@1)</th><th>SQA3D (EM@1)</th><th>Rel. %</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Geo3DPruner</td><td>VGGT-1B</td><td>Full</td><td>26.0</td><td>55.7</td><td>90.7</td></tr>
+        <tr class="ours"><td>CoVeR (Ours)</td><td>None</td><td>None</td><td>26.5</td><td>55.1</td><td>93.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tbl-note">Video-3D&nbsp;LLM backbone, 16 views at a 10% token budget. Geo3DPruner adds a VGGT-1B encoder and retrains the whole backbone; CoVeR adds neither and still comes out ahead on retained performance.</p>
+
+  <div class="figure">
+    <div class="chart-row">
+      <div class="anim-chart" id="chartQwenScan"></div>
+      <div class="anim-chart" id="chartQwenSqa"></div>
+    </div>
+    <div class="figcap"><b>Qwen backbones.</b> Score retained (% of the full-token baseline) as the token budget shrinks, on Qwen2.5-VL-7B and Qwen3-VL-8B. Even at 9% retention CoVeR holds ≥93% on both ScanQA and SQA3D — with no per-model tuning.</div>
+  </div>
+
+  <div class="insight">
+    <b>Qwen family —</b> on both Qwen2.5-VL-7B and Qwen3-VL-8B, CoVeR keeps above <b>93%</b> of full-token performance at just <b>9%</b> of visual tokens, on ScanQA and SQA3D alike — no per-model tuning.
+  </div>
+</section>
+
+<section id="qualitative" class="reveal">
+  <span class="kicker">Qualitative</span>
+  <h2>Why coverage wins</h2>
+  <div class="figure qual-compact">
+      <img src="figs/qualitative.png" alt="Qualitative comparison: chair counting under -77% tokens">
+      <div class="figcap"><b>Qualitative comparison (LLaVA-OV-7B, −77% tokens).</b> At an aggressive 77% token reduction, CoVeR spreads its budget across every chair in the room, while VisPruner and SeGPruner cluster tokens on just a few patches and undercount. Asked "How many chairs are to the left of the table?", the full-token model correctly answers <em>Four</em>. VisPruner concentrates on near-duplicate views of one region and answers <em>Zero</em>; SeGPruner still misses most chairs and answers <em>One</em>. CoVeR spreads its budget across the whole scene and matches the full-token answer, <em>Four</em> — with 5.1× fewer TFLOPs, 1.9× faster inference, and 4.3× smaller KV cache.</div>
+    </div>
+</section>
+
+<section id="bibtex" class="reveal">
+  <span class="kicker">Citation</span>
+  <h2>BibTeX</h2>
+  <div class="bib-card">
+    <button class="copy-btn" id="copyBib">Copy</button>
+    <pre id="bibText"><code><span class="k">@article</span>{<span class="s">bui2026cover</span>,
+  <span class="k">title</span>   = {<span class="s">CoVeR: Coverage-Based Token Pruning for Multi-View 3D Reasoning in VLMs</span>},
+  <span class="k">author</span>  = {<span class="s">Bui, Nhat-Tan and Elangovan, Varshini and Anugu, Arun Reddy and Mohan, Sreyas and Ye, Wei and
+             Wang, Dilin and Huang, JQ and Ranjan, Rakesh and Chharia, Aviral and De la Torre, Fernando</span>},
+  <span class="k">journal</span> = {<span class="s">arXiv preprint</span>},
+  <span class="k">year</span>    = {<span class="s">2026</span>}
+}</code></pre>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-line">
+      <span><span style="color:var(--ink-faint)">Code · soon</span></span>
+      <span><a href="#top">Back to top ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// tabs
+const tabs=document.querySelectorAll('.tab');
+const tabIds=['t9','t14','t23','t40','tbb'];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  if(t.classList.contains('active'))return;
+  tabs.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  tabIds.forEach(id=>{
+    const el=document.getElementById(id);
+    if(id===t.dataset.t){
+      el.hidden=false;
+      el.classList.remove('tab-in');
+      void el.offsetWidth;          // restart the animation on every switch
+      el.classList.add('tab-in');
+    }else{
+      el.hidden=true;
+      el.classList.remove('tab-in');
+    }
+  });
+}));
+// reveal on scroll + bar animation
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.bar-fill').forEach(b=>{
+        const w=parseFloat(b.dataset.w);
+        b.style.width=((w-47)/(51-47)*100).toFixed(1)+'%';   // scale
+      });
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const copyBib=document.getElementById('copyBib');
+if(copyBib){
+  copyBib.addEventListener('click',()=>{
+    navigator.clipboard.writeText(document.getElementById('bibText').innerText).then(()=>{
+      copyBib.textContent='Copied ✓';
+      setTimeout(()=>copyBib.textContent='Copy',1600);
+    });
+  });
+}
+</script>
+
+<script src="charts.js?v=20260908f"></script>
+<script src="demo/demo.js?v=20260908f"></script>
+</body>
+</html>

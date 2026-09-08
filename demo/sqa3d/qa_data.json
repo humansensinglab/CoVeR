@@ -1,0 +1,544 @@
+[
+  {
+    "id": "situational",
+    "label": "Situational (egocentric)",
+    "accuracy": "6 / 15 correct",
+    "items": [
+      {
+        "qid": 220602003394,
+        "q": "What is to my right that a baby uses to sleep?",
+        "situation": "I am facing the window with a table in front of me, and a chair on my left.",
+        "pred": "couch",
+        "gt": [
+          "crib"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602009391,
+        "q": "What is sitting on the armchair in my 2 o'clock direction?",
+        "situation": "I am facing a shelf and there is an armchair in my two o'clock direction.",
+        "pred": "pillow",
+        "gt": [
+          "pillow"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602013623,
+        "q": "What is behind me that a baby would sleep in at night?",
+        "situation": "I am facing the shelf closest to the armchair.",
+        "pred": "couch",
+        "gt": [
+          "crib"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602014238,
+        "q": "What is to my left that you can use to nurse a baby?",
+        "situation": "I am facing the window with a table in front of me, and a chair on my left.",
+        "pred": "couch",
+        "gt": [
+          "armchair"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602018273,
+        "q": "What is the object above the crib behind me?",
+        "situation": "I am facing the shelf closest to the armchair.",
+        "pred": "lamp",
+        "gt": [
+          "baby mobile"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602018634,
+        "q": "What is to my left that a nursing mother would sit on?",
+        "situation": "I am facing a table and there is a crib on my right.",
+        "pred": "chair",
+        "gt": [
+          "arm chair"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602018855,
+        "q": "What is covering the window to my right?",
+        "situation": "I am facing a shelf and there is an armchair in my two o'clock direction.",
+        "pred": "curtain",
+        "gt": [
+          "curtain"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602018907,
+        "q": "What type of ball is the one on the floor behind me?",
+        "situation": "I am facing the window with a table in front of me, and a chair on my left.",
+        "pred": "basketball",
+        "gt": [
+          "basketball"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602019086,
+        "q": "What is mounted on the wall to my left side?",
+        "situation": "I am facing a table and there is a crib on my right.",
+        "pred": "lamp",
+        "gt": [
+          "pictures"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602019510,
+        "q": "What is orange behind me on the floor?",
+        "situation": "I am facing a table and there is a crib on my right.",
+        "pred": "ball",
+        "gt": [
+          "basketball"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602019685,
+        "q": "What is hung on the wall in front of me?",
+        "situation": "I am facing the shelf closest to the armchair.",
+        "pred": "lamp",
+        "gt": [
+          "pictures"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602025012,
+        "q": "What is to my right that a baby sleeps in?",
+        "situation": "I am facing a table and there is a crib on my right.",
+        "pred": "crib",
+        "gt": [
+          "crib"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602026630,
+        "q": "The picture frames are sitting on what above in front of me?",
+        "situation": "I am facing the shelf closest to the armchair.",
+        "pred": "wall",
+        "gt": [
+          "ledge"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602026992,
+        "q": "What is orange behind me and on the floor?",
+        "situation": "I am facing the window with a table in front of me, and a chair on my left.",
+        "pred": "ball",
+        "gt": [
+          "ball"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602032400,
+        "q": "What is mounted on the wall that you can use to tell the time to my right?",
+        "situation": "I am facing the window with a table in front of me, and a chair on my left.",
+        "pred": "clock",
+        "gt": [
+          "clock"
+        ],
+        "ok": true
+      }
+    ]
+  },
+  {
+    "id": "color",
+    "label": "Color",
+    "accuracy": "1 / 2 correct",
+    "items": [
+      {
+        "qid": 220602003514,
+        "q": "What color is the ledge in front of me?",
+        "situation": "I am facing the shelf closest to the armchair.",
+        "pred": "white",
+        "gt": [
+          "white"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602028012,
+        "q": "What color are the spots on the pillow to my 2 o'clock direction?",
+        "situation": "I am facing a shelf and there is an armchair in my two o'clock direction.",
+        "pred": "white",
+        "gt": [
+          "grey"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "counting",
+    "label": "Counting",
+    "accuracy": "0 / 4 correct",
+    "items": [
+      {
+        "qid": 220602005891,
+        "q": "How many pictures are hung on the wall in front of me?",
+        "situation": "I am facing a shelf and there is an armchair in my two o'clock direction.",
+        "pred": "zero",
+        "gt": [
+          "two"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602020154,
+        "q": "How many pictures are on the shelves in front of me?",
+        "situation": "I am facing a shelf and there is an armchair in my two o'clock direction.",
+        "pred": "zero",
+        "gt": [
+          "five"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602031051,
+        "q": "Can the number of shelves behind me be divided by three?",
+        "situation": "I am facing the crib and the curtains are on my left side.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602032109,
+        "q": "How many balls are behind me?",
+        "situation": "I am facing a table and there is a crib on my right.",
+        "pred": "zero",
+        "gt": [
+          "one"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "comparison",
+    "label": "Comparison / Yes-No",
+    "accuracy": "3 / 11 correct",
+    "items": [
+      {
+        "qid": 220602006520,
+        "q": "Is the wardrobe closet next to the window?",
+        "situation": "I am checking on my baby, while there is a curtain on my left.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602006998,
+        "q": "Is the amount of shelves I am facing odd or even?",
+        "situation": "I am facing a shelf and there is a wardrobe closet behind me.",
+        "pred": "even",
+        "gt": [
+          "even"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602013063,
+        "q": "Is the amount of pictures behind me odd or even?",
+        "situation": "I am facing the wardrobe closet, and the red ball is on the floor to my right.",
+        "pred": "even",
+        "gt": [
+          "odd"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602017077,
+        "q": "Is the lamp in front of me or behind me?",
+        "situation": "I am checking on my baby, while there is a curtain on my left.",
+        "pred": "behind",
+        "gt": [
+          "behind"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602017802,
+        "q": "Is the shape of table to my left back round, square or rectangular?",
+        "situation": "I am choosing a dress and there is a ball in my two o'clock direction.",
+        "pred": "rectangular",
+        "gt": [
+          "square"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602018036,
+        "q": "Are the armchairs directly next to each other or are they on opposite sides of the room?",
+        "situation": "I am checking on my baby, while there is a curtain on my left.",
+        "pred": "next to each other",
+        "gt": [
+          "unknown"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602022939,
+        "q": "Is the shape of table behind me round, square or rectangular?",
+        "situation": "I am facing the crib and the curtains are on my left side.",
+        "pred": "rectangular",
+        "gt": [
+          "rectangular"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602023710,
+        "q": "Is the crib closer to the diaper bin or the ball?",
+        "situation": "I am checking on my baby, while there is a curtain on my left.",
+        "pred": "closer to the diaper bin",
+        "gt": [
+          "unknown"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602024403,
+        "q": "Is the amount of chest I am facing odd or even?",
+        "situation": "I am choosing a dress and there is a ball in my two o'clock direction.",
+        "pred": "even",
+        "gt": [
+          "odd"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602025697,
+        "q": "Is the clock closer to the baby mobile or the pillow?",
+        "situation": "I am checking on my baby, while there is a curtain on my left.",
+        "pred": "pillow",
+        "gt": [
+          "baby mobile"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602026998,
+        "q": "Is the amount of picture behind me odd or even?",
+        "situation": "I am facing the crib and the curtains are on my left side.",
+        "pred": "even",
+        "gt": [
+          "odd"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "capability",
+    "label": "Capability (\"Can I...\")",
+    "accuracy": "4 / 10 correct",
+    "items": [
+      {
+        "qid": 220602002964,
+        "q": "Can the amount of pillow behind me be divided by three?",
+        "situation": "I am sitting in an armchair with a lamp behind me.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602008291,
+        "q": "Can I see curtains where I am standing?",
+        "situation": "I am sitting in an armchair with a lamp behind me.",
+        "pred": "yes",
+        "gt": [
+          "yes"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602011984,
+        "q": "Can I see the clock at where I am standing?",
+        "situation": "I am facing the wardrobe closet, and the red ball is on the floor to my right.",
+        "pred": "no",
+        "gt": [
+          "yes"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602016712,
+        "q": "Can the amount of picture in front of me divided by three?",
+        "situation": "I am facing a shelf and there is a wardrobe closet behind me.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602019599,
+        "q": "Can I see pillow if I turn around?",
+        "situation": "I am choosing a dress and there is a ball in my two o'clock direction.",
+        "pred": "yes",
+        "gt": [
+          "yes"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602024710,
+        "q": "Can I see the clock at where I am standing?",
+        "situation": "I am facing the crib and the curtains are on my left side.",
+        "pred": "no",
+        "gt": [
+          "yes"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602029931,
+        "q": "Can the amount of shelf behind me be divided by three?",
+        "situation": "I am facing the wardrobe closet, and the red ball is on the floor to my right.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602030555,
+        "q": "Can I see the ledge if I turn around?",
+        "situation": "I am facing the wardrobe closet, and the red ball is on the floor to my right.",
+        "pred": "yes",
+        "gt": [
+          "yes"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602031638,
+        "q": "Can I see the clock if I turn around?",
+        "situation": "I am facing a shelf and there is a wardrobe closet behind me.",
+        "pred": "yes",
+        "gt": [
+          "yes"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602032091,
+        "q": "Can I see the lamp if I turn around?",
+        "situation": "I am sitting in an armchair with a lamp behind me.",
+        "pred": "yes",
+        "gt": [
+          "no"
+        ],
+        "ok": false
+      }
+    ]
+  },
+  {
+    "id": "identity",
+    "label": "Object Identity / Other",
+    "accuracy": "3 / 8 correct",
+    "items": [
+      {
+        "qid": 220602000121,
+        "q": "Which direction should I go if I want to open the window?",
+        "situation": "I am sitting in an armchair with a lamp behind me.",
+        "pred": "right",
+        "gt": [
+          "left"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602016949,
+        "q": "Which direction should I go if I want to turn on the lamp?",
+        "situation": "I am facing a shelf and there is a wardrobe closet behind me.",
+        "pred": "right",
+        "gt": [
+          "right"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602017354,
+        "q": "Which direction should I go if I want to open the window?",
+        "situation": "I am facing the crib and the curtains are on my left side.",
+        "pred": "right",
+        "gt": [
+          "left"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602019536,
+        "q": "Which direction should I go if I want to open the window?",
+        "situation": "I am choosing a dress and there is a ball in my two o'clock direction.",
+        "pred": "right",
+        "gt": [
+          "left"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602021540,
+        "q": "Which direction should I go if I want to see pictures?",
+        "situation": "I am sitting in an armchair with a lamp behind me.",
+        "pred": "right",
+        "gt": [
+          "right"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602023829,
+        "q": "Which direction should I go if I want to open the window?",
+        "situation": "I am facing a shelf and there is a wardrobe closet behind me.",
+        "pred": "right",
+        "gt": [
+          "right"
+        ],
+        "ok": true
+      },
+      {
+        "qid": 220602030067,
+        "q": "Which direction should I go if I want to open the window?",
+        "situation": "I am facing the wardrobe closet, and the red ball is on the floor to my right.",
+        "pred": "right",
+        "gt": [
+          "left"
+        ],
+        "ok": false
+      },
+      {
+        "qid": 220602030176,
+        "q": "Which direction should I go if I want to see the crib?",
+        "situation": "I am choosing a dress and there is a ball in my two o'clock direction.",
+        "pred": "right",
+        "gt": [
+          "left"
+        ],
+        "ok": false
+      }
+    ]
+  }
+]
