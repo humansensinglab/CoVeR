@@ -415,9 +415,12 @@ tr.ours td:first-child{color:var(--acc)}
 footer{margin-top:96px;border-top:1px solid var(--line);padding:44px 0 56px;background:#fff}
 footer .ack{font-size:.85rem;color:var(--ink-faint);max-width:860px;margin-bottom:18px}
 footer .foot-line{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;color:var(--ink-soft)}
+.visitors{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0 auto 28px}
+.visitors-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.visitors img{max-width:300px;width:100%;height:auto;display:block;border-radius:8px}
+.foot-credit{text-align:center;font-size:.8rem;color:var(--ink-faint);margin-top:16px}
+.foot-credit a{color:var(--ink-faint);text-decoration:underline}
  
-/* colored scrollbar (standard props only for Firefox — Chromium would
-   otherwise ignore the ::-webkit-scrollbar gradient styling) */
 @supports not selector(::-webkit-scrollbar){
   html{scrollbar-width:thin;scrollbar-color:#a5b4fc #f1f4f9}
 }
