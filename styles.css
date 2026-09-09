@@ -136,7 +136,7 @@ section{padding:84px 0 6px}
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px;
 }
 section h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;letter-spacing:-.01em;margin-bottom:18px}
-.prose{color:var(--ink-soft);max-width:860px;font-size:1.02rem}
+.prose{color:var(--ink-soft);max-width:none;font-size:1.02rem}
 .prose b{color:var(--ink)}
 .figure{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
