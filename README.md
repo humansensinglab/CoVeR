@@ -22,7 +22,7 @@
 <br>
 
   <a href="https://humansensinglab.github.io/CoVeR/"><img alt="Webpage" src="https://img.shields.io/badge/Webpage-up-yellow"></a>
-  [![GitHub Stars](https://img.shields.io/github/stars/humansensinglab/CoVeR?style=social)](https://github.com/humansensinglab/CoVeR)
+  [![arXiv](https://img.shields.io/badge/arXiv-2609.08345-b31b1b)](https://arxiv.org/abs/2609.08345)  [![GitHub Stars](https://img.shields.io/github/stars/humansensinglab/CoVeR?style=social)](https://github.com/humansensinglab/CoVeR)
 
 ---
 
@@ -35,7 +35,7 @@ Achieve 93.5% of full-token performance with just 8% of the tokens! We present C
 
 ## :rocket: **Updates**
 - ✅ **Coming Soon**: Full CoVeR Codebase. Stay Tuned!
-- ✅ **Sep. 8, 2026**: We released the CoVeR on arXiv. Check the preprint!
+- ✅ **Sep. 8, 2026**: We released the CoVeR on [arXiv](https://arxiv.org/abs/2609.08345). Check the preprint!
 
 ## :open_book: **Abstract**
 
